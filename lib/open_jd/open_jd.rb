@@ -1,4 +1,7 @@
 module OpenJd
+  require 'active_support/core_ext/hash'
+  require 'active_support/json'
+
   REQUEST_TIMEOUT = 10
   API_VERSION = '2.0'
   USER_AGENT = "open_jd-v#{VERSION}"
@@ -89,7 +92,7 @@ module OpenJd
         method:              params[:method],
         app_key:             config['app_key'],
         access_token:        config['access_token'],
-        '360buy_param_json' => "{" + sorted_option_string(params[:fields], '"', ':', ',') + "}",
+        '360buy_param_json' => params[:fields].symbolize_keys.sort.to_h.to_json,
         timestamp:           Time.now.strftime('%F %T')
       }
     end
@@ -102,7 +105,7 @@ module OpenJd
 
     # Return query string with signature.
     def query_string(params)
-      '?' + sorted_option_string(query_hash(params), '', '=', '&')
+      '?' + query_hash(params).to_query
     end
 
     # Return full url with signature.
@@ -131,7 +134,7 @@ module OpenJd
 
     # Request by post method and return result in JSON format
     def post(params)
-      parse_result session.post('',  sorted_option_string(query_hash(params), '', '=', '&')).body
+      parse_result session.post('',  query_hash(params).to_query).body
     end
 
     # Request by post method and return result in JSON format
