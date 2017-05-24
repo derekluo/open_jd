@@ -2,16 +2,13 @@ development:
   app_key:    'test'
   secret_key: 'test'
   access_token: 'test'
-  endpoint:   'https://api.jd.com/routerjson'
 
 test:
   app_key:    'test'
   secret_key: 'test'
   access_token: 'test'
-  endpoint:   'https://api.jd.com/routerjson'
 
 production:
   app_key:    'test'
   secret_key: 'test'
   access_token: 'test'
-  endpoint:   'https://api.jd.com/routerjson'
