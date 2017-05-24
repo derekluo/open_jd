@@ -3,7 +3,7 @@ OpenJd
 
 京东开放平台 JOS Ruby SDK
 
-gem 'open_jd', github: 'derekluo/open_jd'
+    gem 'open_jd', github: 'derekluo/open_jd'
 
 如果使用 [patron][] 代替 Net::HTTP, 请在 Gemfile 中添加下列代码
 
