@@ -65,3 +65,4 @@ OpenJd
 
 [patron]: https://github.com/toland/patron
 [open_taobao]: https://github.com/wongyouth/open_taobao
+[JOS API DOC]: http://jos.jd.com/api/index.htm
